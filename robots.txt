@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://rsbrow-hub.github.io/MorpheApp-Artifacts/sitemap.xml
