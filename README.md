@@ -1,4 +1,4 @@
-# NODOC-s
+# MorpheApp-Artifacts
 # MorpheApp Patched APKs – Revanced Alternative
 
 > Ready-to-install, pre-patched APK files of MorpheApp.  
@@ -34,7 +34,8 @@
 
 ---
 
-| **Trust & transparency** | All APKs are built from public Morphe patches; VirusTotal reports are linked in each release. | Source can be verified, but the final APK is built locally – no third‑party scan is provided by default. |
+## 🔒 Trust & Transparency
+All APKs are built from public Morphe patches; VirusTotal reports are linked in each release. The final APK is provided as-is, scanned, and shared for complete transparency.
 
 ---
 
