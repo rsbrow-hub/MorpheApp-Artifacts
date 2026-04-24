@@ -2,3 +2,5 @@ theme: jekyll-theme-cayman
 title: MorpheApp Patched APKs
 description: Ready‑to‑install APKs for YouTube Morphe. Safer than Revanced. VirusTotal scanned. Updated daily.
 show_downloads: false   # we'll add our own button
+plugins:
+  - jekyll-sitemap
