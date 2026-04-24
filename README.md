@@ -11,7 +11,7 @@
 - **No root required** – Works on any Android device without administrator access.
 - **Built‑in ad‑blocking & background play** – Enjoy videos without interruptions and keep playback running in the background.
 - **Return YouTube Dislike & SponsorBlock** – See dislike counts and skip sponsored segments automatically.
-- **Advanced YTDLnis integration** – Seamless merger with YTDLnis gives you powerful video/audio downloading directly inside the app.
+- **Seamless External Download Support** – MorpheApp adds a dedicated download button to the YouTube player. When tapped, it opens your installed YTDLnis (or similar external downloader) and passes the video link automatically, making high-quality downloads a one-click process.
 - **Extensive YouTube customisation** – Tweak the UI, behaviour, and player exactly the way you want.
 - **Ready‑to‑import settings** – I’ve prepared a carefully tuned settings file with **50+ essential Morphea preferences**. Simply import after installation and enjoy the optimal experience instantly.
 - **Regular, automated updates** – New pre‑patched APKs are released within hours of the latest Morphea patches, keeping you always up to date.
