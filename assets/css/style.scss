@@ -1,0 +1,104 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* ---------- Global ---------- */
+body {
+  background-color: #f4f6fb;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  color: #2c3e50;
+}
+
+/* ---------- Header (Hero) ---------- */
+.page-header {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 4rem 1.5rem;
+  text-align: center;
+  color: #ffffff;
+  border-bottom: 5px solid #00d2ff;
+}
+.project-name {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.project-tagline {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+/* Download button inside header */
+.header-download-btn {
+  display: inline-block;
+  background: #00d2ff;
+  color: #0f2027;
+  padding: 0.8rem 2.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: 0.2s;
+  margin-top: 1rem;
+}
+.header-download-btn:hover {
+  background: #00a8cc;
+  color: #ffffff;
+}
+
+/* ---------- Content Wrapper ---------- */
+.main-content {
+  max-width: 65rem;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+.main-content h1, .main-content h2, .main-content h3 {
+  color: #203a43;
+}
+
+/* Feature cards */
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.feature-card {
+  flex: 1 1 280px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+.feature-card h3 {
+  margin-top: 0;
+}
+
+/* General buttons */
+.btn {
+  display: inline-block;
+  background: #203a43;
+  color: #fff;
+  padding: 0.7rem 1.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn:hover {
+  background: #0f2027;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #7f8c8d;
+  margin-top: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid #dcdde1;
+}
