@@ -1,47 +1,44 @@
-# MorpheApp-Artifacts
-# MorpheApp Patched APKs – Revanced Alternative
+# MorpheApp Patched APKs – The Safer ReVanced Alternative
 
-> Ready-to-install, pre-patched APK files of MorpheApp.  
-> More advanced, lightweight, and secure than Revanced.  
-> ✅ VirusTotal scanned | ✅ Updated instantly after new patch release
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/rsbrow-hub/MorpheApp-Artifacts?style=flat-square)](https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases/latest)
+[![VirusTotal Scanned](https://img.shields.io/badge/VirusTotal-Scanned-brightgreen?style=flat-square)](https://www.virustotal.com)
+[![Website](https://img.shields.io/badge/Website-Live-blue?style=flat-square)](https://rsbrow-hub.github.io/MorpheApp-Artifacts/)
 
----
-## ✨ Features
-
-- **No root required** – Works on any Android device without administrator access.
-- **Built‑in ad‑blocking & background play** – Enjoy videos without interruptions and keep playback running in the background.
-- **Return YouTube Dislike & SponsorBlock** – See dislike counts and skip sponsored segments automatically.
-- **Seamless External Download Support** – MorpheApp adds a dedicated download button to the YouTube player. When tapped, it opens your installed YTDLnis (or similar external downloader) and passes the video link automatically, making high-quality downloads a one-click process.
-- **Extensive YouTube customisation** – Tweak the UI, behaviour, and player exactly the way you want.
-- **Ready‑to‑import settings** – I’ve prepared a carefully tuned settings file with **50+ essential Morphea preferences**. Simply import after installation and enjoy the optimal experience instantly.
-- **Regular, automated updates** – New pre‑patched APKs are released within hours of the latest Morphea patches, keeping you always up to date.
-- **VirusTotal scanned** – Every release APK is scanned on VirusTotal (70+ engines) so you can verify safety yourself.
-- **All‑in‑one convenience** – No patching, no manager, no manual APK hunting — just download, install, and go.
-
-… and much more!
-- All APKs are scanned on [VirusTotal](https://www.virustotal.com) before upload (link inside release)
+> Ready-to-install, pre-patched APKs of **MorpheApp** (YouTube &amp; YT Music).  
+> No root, no patching, no manager — just download, install, and enjoy ad‑free YouTube.
 
 ---
 
-## 📲 Download & Install
+## 🔥 Why MorpheApp Over ReVanced?
 
-1. Go to the [**Releases**](../../releases) page.
-2. Download the latest `.apk` file from the most recent release.
-3. Enable **“Install from unknown sources”** in your device settings.
-4. Install the APK and enjoy!
+- ✅ **No root required** – Works on any Android 7.0+ device.
+- 🔇 **Ad‑free & background playback** – Zero interruptions, plays with screen off.
+- ⬇️ **Built‑in downloader** – Opens YTDLnis (or any external downloader) with one tap.
+- ⚡ **SponsorBlock & Return YouTube Dislike** – Skips sponsored segments and shows dislikes.
+- 🎨 **Deep customisation** – Themes, UI tweaks, swipe controls, custom playback speeds.
+- ⚙️ **50+ ready‑to‑import settings** – Import the provided settings file and unlock everything instantly.
+- 🛡️ **VirusTotal scanned** – Every APK verified with 70+ engines before release.
+- 🚀 **Super‑fast updates** – New APKs drop within hours of official Morphe patches.
 
-> ⚠️ If Google Play Protect shows a warning, press “Install anyway”. The APKs are safe, but they are not signed by the original developer.
+---
+
+## 📥 Download & Install
+
+1. Visit our **[Website](https://rsbrow-hub.github.io/MorpheApp-Artifacts/)** or the **[Releases page](../../releases)**.
+2. Download the latest `.apk` file.
+3. Enable **“Install from unknown sources”**.
+4. Install and sign in using **MicroG** (if not rooted).
+
+🔧 **Bonus:** After installing, import our [pre‑tuned settings file](https://raw.githubusercontent.com/rsbrow-hub/MorpheApp-Artifacts/main/My.50%2B.YouTube_Morphe_Settings_2026-04-22.txt) for the best experience (full guide on website).
 
 ---
 
 ## 🔒 Trust & Transparency
-All APKs are built from public Morphe patches; VirusTotal reports are linked in each release. The final APK is provided as-is, scanned, and shared for complete transparency.
+All APKs are built from public Morphe patches. VirusTotal scan results are linked in each release. No hidden modifications.
 
 ---
 
-## 📅 Latest Updates
+## 📅 Updates
+Check the **[Releases](../../releases)** section for version history and changelogs.
 
-See the [Releases](../../releases) section for version history and changelogs.
----
-
-> **Disclaimer:** This project is not affiliated with YouTube or Google. Use at your own risk. The APKs are provided for educational purposes only.
+> ⚠️ **Disclaimer:** Not affiliated with YouTube or Google. Provided for educational use only. Use at your own risk.
