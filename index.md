@@ -91,18 +91,20 @@ layout: default
   <div class="download-card">
     <h3>🎵 MorpheApp Music (YT Music)</h3>
     <p>Ad‑free YouTube Music APK</p>
-    <a href="https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases" class="btn-download">🎵 Go to Releases</a>
+    <a href="https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases/latest" class="btn-download">⬇️ Latest APK</a>
+    <a href="https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases" class="btn-outline">📂 All Versions</a>
   </div>
   <div class="download-card">
     <h3>🔧 MicroG</h3>
     <p>Required for non‑rooted login</p>
-    <a href="https://github.com/MorpheApp/MicroG-RE/releases" class="btn-download">⬇️ Download MicroG</a>
+    <a href="https://github.com/MorpheApp/MicroG-RE/releases/latest" class="btn-download">⬇️ Latest MicroG</a>
+    <a href="https://github.com/MorpheApp/MicroG-RE/releases" class="btn-outline">📂 All Versions</a>
   </div>
   <div class="download-card">
     <h3>⚙️ Settings File (50+ Tweaks)</h3>
     <p>Pre‑configured for the best experience. Import and relax.</p>
-    <a href="YOUR_SETTINGS_FILE_URL" class="btn-download">⬇️ Download Settings</a>
-    <small>⬆️ Replace with your actual file link</small>
+    <a href="https://raw.githubusercontent.com/rsbrow-hub/MorpheApp-Artifacts/main/My.50%2B.YouTube_Morphe_Settings_2026-04-22.txt" class="btn-download">⬇️ Download Settings</a>
+    <small>⬆️ Link updated to your uploaded file. Test after upload.</small>
   </div>
 </div>
 
@@ -145,18 +147,26 @@ After installing, our settings file will unlock everything automatically. Here�
 6. Tap **Import Settings** and choose the downloaded settings file (the `.txt` file).
 7. Tap **Save** and restart the app when prompted.
 
-**What’s included in the settings file:**
-- **SponsorBlock** – enabled, auto‑skip all segments
-- **Return YouTube Dislike** – activated, shows dislike count
-- **Theme** – **Morphe Dark** with accent color #58a6ff
-- **Swipe controls** – brightness (left) and volume (right) set to 15px sensitivity
-- **Player UI** – minimal mode, hide comments by default
-- **Playback** – default speed 1x, long press fast‑forward/rewind 10s
-- **Background & PiP** – both enabled, high‑quality streaming
-- **Buffer settings** – optimized for slower connections
-- **Ads** – everything disabled at system level (no ad breaks anywhere)
-
-You can always tweak further, but this preset will give you a heavy‑duty premium experience right from the start.
+**What’s included (20 key tweaks + 30 more):**
+- **SponsorBlock** – all segments auto‑skipped, compact button, voting on
+- **Swipe brightness** – left edge, press‑to‑engage, 25% sensitivity
+- **Swipe volume** – right edge, same press‑to‑engage
+- **Tap to seek** & **Slide to seek** both enabled
+- **Fullscreen large seekbar** with custom colors (#FFD306 accent, #F13C09 primary)
+- **Default video quality** – 1440p WiFi / 480p mobile, remembered
+- **Shorts quality** – 1080p WiFi / 720p mobile
+- **External downloader** – action button always visible
+- **Hide Shorts, Shop, Remix buttons** for clean UI
+- **Hide previous/next buttons & background**
+- **Hide navigation labels**
+- **Override YT Music button**
+- **Player hash spoof** for better streams
+- **Header logo** set to “Premium”
+- **Playback speed dialog** always visible
+- **Disable auto‑hide navigation bar**
+- **Auto captions disabled**
+- **No Shorts resume, no popup panels**
+… and **30+ additional refinements** (seekbar opacity, branding icon, search button, etc.)
 
 ---
 
