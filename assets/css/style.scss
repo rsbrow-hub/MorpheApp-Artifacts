@@ -1,104 +1,212 @@
 ---
 ---
 
-@import "{{ site.theme }}";
-
-/* ---------- Global ---------- */
-body {
-  background-color: #f4f6fb;
-  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  color: #2c3e50;
+/* ===== Modern Dark Theme for MorpheApp Page ===== */
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-hover: #1c2129;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-hover: #79c0ff;
+  --green: #3fb950;
+  --yellow: #d2991d;
+  --red: #f85149;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
 }
 
-/* ---------- Header (Hero) ---------- */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Override Cayman theme header ---------- */
 .page-header {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  padding: 4rem 1.5rem;
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 1rem 2rem;
   text-align: center;
-  color: #ffffff;
-  border-bottom: 5px solid #00d2ff;
 }
 .project-name {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 800;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
+  background: linear-gradient(120deg, #58a6ff, #bc8cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
 }
 .project-tagline {
-  font-size: 1.3rem;
-  opacity: 0.9;
-  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
 }
 
-/* Download button inside header */
-.header-download-btn {
-  display: inline-block;
-  background: #00d2ff;
-  color: #0f2027;
-  padding: 0.8rem 2.2rem;
-  font-weight: bold;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.2s;
-  margin-top: 1rem;
-}
-.header-download-btn:hover {
-  background: #00a8cc;
-  color: #ffffff;
-}
-
-/* ---------- Content Wrapper ---------- */
-.main-content {
-  max-width: 65rem;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-}
-.main-content h1, .main-content h2, .main-content h3 {
-  color: #203a43;
-}
-
-/* Feature cards */
-.feature-grid {
+/* ---------- Hero buttons ---------- */
+.hero-download {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 1rem;
+}
+.btn-primary, .btn-secondary, .btn-download, .btn-outline {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(88,166,255,0.4);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(88,166,255,0.6);
+}
+.btn-secondary {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--text-muted);
+}
+.btn-download {
+  background: linear-gradient(135deg, #238636, #2ea043);
+  color: #fff;
+  border: none;
+}
+.btn-download:hover {
+  background: linear-gradient(135deg, #2ea043, #3fb950);
+  transform: translateY(-2px);
+}
+.btn-outline {
+  background: transparent;
+  border-color: var(--green);
+  color: var(--green);
+  margin-top: 0.5rem;
+}
+.btn-outline:hover {
+  background: rgba(63, 185, 80, 0.1);
+}
+
+/* ---------- Feature Grid ---------- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
-  margin: 2rem 0;
+  margin: 2rem 1rem;
 }
 .feature-card {
-  flex: 1 1 280px;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 .feature-card:hover {
   transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
 }
 .feature-card h3 {
-  margin-top: 0;
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+.feature-card p {
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-/* General buttons */
-.btn {
-  display: inline-block;
-  background: #203a43;
-  color: #fff;
-  padding: 0.7rem 1.8rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
+/* ---------- Downloads Section ---------- */
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 1rem;
 }
-.btn:hover {
-  background: #0f2027;
-}
-
-/* Footer */
-footer {
+.download-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
   text-align: center;
-  color: #7f8c8d;
-  margin-top: 3rem;
-  padding: 2rem 0;
-  border-top: 1px solid #dcdde1;
+  transition: all 0.2s;
+}
+.download-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+.download-card h3 {
+  font-size: 1.4rem;
+  margin: 0 0 0.8rem;
+}
+.download-card p {
+  color: var(--text-muted);
+  min-height: 3em;
+}
+.download-card .btn-download,
+.download-card .btn-outline {
+  margin: 0.5rem 0;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- How to Install / Quick Links ---------- */
+ol, ul {
+  padding-left: 1.4rem;
+  line-height: 1.8;
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+hr {
+  border-color: var(--border);
+  margin: 2rem 0;
+}
+blockquote {
+  border-left: 4px solid var(--yellow);
+  background: rgba(210,153,29,0.08);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--text-muted);
+}
+small {
+  color: var(--text-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .project-name {
+    font-size: 2rem;
+  }
+  .hero-download {
+    flex-direction: column;
+    align-items: center;
+  }
 }
