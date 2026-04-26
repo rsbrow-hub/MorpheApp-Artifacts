@@ -48,7 +48,7 @@ Check the **[Releases](../../releases)** section for version history and changel
 All APKs are patched using the original **MorpheApp patches**.  
 Full credit goes to the official MorpheApp team.
 
-- Official GitHub: [https://github.com/MorpheApp/morphe-manager/releases)  
-- Official Website: [https://morphe.software/)
+- Official GitHub: <a href="https://github.com/MorpheApp/morphe-manager/releases" target="_blank" rel="noopener noreferrer">MorpheApp Morphe Manager</a>
+- Official Website: <a href="https://morphe.software/" target="_blank" rel="noopener noreferrer">morphe.software</a>
 
 > ⚠️ **Disclaimer:** Not affiliated with YouTube or Google. Provided for educational use only. Use at your own risk.
