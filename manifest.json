@@ -1,0 +1,16 @@
+{
+  "name": "MorpheApp Patched APKs",
+  "short_name": "MorpheApp",
+  "description": "Pre-patched YouTube & YT Music APKs – safer ReVanced alternative",
+  "start_url": "/MorpheApp-Artifacts/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#58a6ff",
+  "icons": [
+    {
+      "src": "/MorpheApp-Artifacts/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}
