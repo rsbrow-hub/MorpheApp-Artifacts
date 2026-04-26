@@ -1,7 +1,7 @@
 ---
 ---
 
-/* ===== Modern Dark Theme for MorpheApp Page ===== */
+/* ===== Modern Dark Glowing Theme for MorpheApp ===== */
 :root {
   --bg: #0d1117;
   --surface: #161b22;
@@ -11,11 +11,13 @@
   --text-muted: #8b949e;
   --accent: #58a6ff;
   --accent-hover: #79c0ff;
+  --accent-glow: rgba(88,166,255,0.4);
   --green: #3fb950;
+  --green-glow: rgba(63,185,80,0.4);
   --yellow: #d2991d;
   --red: #f85149;
-  --radius: 12px;
-  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --radius: 14px;
+  --shadow: 0 8px 30px rgba(0,0,0,0.5);
 }
 
 body {
@@ -26,12 +28,43 @@ body {
   padding: 0;
 }
 
-/* ---------- Override Cayman theme header ---------- */
+/* ---------- Move content away from edges ---------- */
+.main-content {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media (min-width: 768px) {
+  .main-content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .main-content {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* ---------- Override Cayman header ---------- */
 .page-header {
   background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
   border-bottom: 1px solid var(--border);
   padding: 3rem 1rem 2rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+/* subtle top glow */
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(88,166,255,0.08), transparent 70%);
+  pointer-events: none;
 }
 .project-name {
   font-size: 2.8rem;
@@ -41,6 +74,11 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin: 0;
+  animation: titlePulse 3s ease-in-out infinite alternate;
+}
+@keyframes titlePulse {
+  0% { filter: drop-shadow(0 0 8px rgba(88,166,255,0.3)); }
+  100% { filter: drop-shadow(0 0 16px rgba(188,140,255,0.4)); }
 }
 .project-tagline {
   font-size: 1.2rem;
@@ -48,7 +86,7 @@ body {
   margin-top: 0.2rem;
 }
 
-/* ---------- Hero buttons ---------- */
+/* ---------- Hero buttons with glow animation ---------- */
 .hero-download {
   display: flex;
   flex-wrap: wrap;
@@ -65,16 +103,24 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  position: relative;
+  z-index: 1;
 }
 .btn-primary {
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 0 20px rgba(88,166,255,0.4);
+  box-shadow: 0 0 25px var(--accent-glow);
+  animation: glowPulse 2.5s infinite alternate;
+}
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 20px var(--accent-glow); }
+  100% { box-shadow: 0 0 40px rgba(88,166,255,0.7); }
 }
 .btn-primary:hover {
   background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(88,166,255,0.6);
+  transform: translateY(-3px);
+  animation: none;
+  box-shadow: 0 0 50px rgba(88,166,255,0.8);
 }
 .btn-secondary {
   background: transparent;
@@ -89,10 +135,18 @@ body {
   background: linear-gradient(135deg, #238636, #2ea043);
   color: #fff;
   border: none;
+  box-shadow: 0 0 20px var(--green-glow);
+  animation: greenGlow 2.5s infinite alternate;
+}
+@keyframes greenGlow {
+  0% { box-shadow: 0 0 15px var(--green-glow); }
+  100% { box-shadow: 0 0 35px rgba(63,185,80,0.7); }
 }
 .btn-download:hover {
   background: linear-gradient(135deg, #2ea043, #3fb950);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  animation: none;
+  box-shadow: 0 0 45px rgba(63,185,80,0.8);
 }
 .btn-outline {
   background: transparent;
@@ -104,57 +158,78 @@ body {
   background: rgba(63, 185, 80, 0.1);
 }
 
-/* ---------- Feature Grid ---------- */
+/* ---------- Feature Grid – Bigger cards, more room ---------- */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
 }
 .feature-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.8rem 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 2rem 1.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+/* subtle hover gradient sweep */
+.feature-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(88,166,255,0.05), transparent);
+  transition: left 0.45s ease;
+}
+.feature-card:hover::after {
+  left: 100%;
 }
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow), 0 0 25px rgba(88,166,255,0.15);
   border-color: var(--accent);
 }
 .feature-icon {
-  font-size: 2rem;
-  margin-bottom: 0.8rem;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
 }
 .feature-card h3 {
-  font-size: 1.3rem;
-  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  margin: 0 0 0.7rem;
   color: var(--text);
 }
 .feature-card p {
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.6;
+  font-size: 0.97rem;
 }
 
 /* ---------- Downloads Section ---------- */
 .download-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.8rem;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
 }
 .download-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.8rem;
+  padding: 2rem 1.8rem;
   text-align: center;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  position: relative;
 }
 .download-card:hover {
   border-color: var(--accent);
-  box-shadow: var(--shadow);
+  box-shadow: 0 0 25px rgba(88,166,255,0.15), var(--shadow);
+  transform: translateY(-3px);
 }
 .download-card h3 {
   font-size: 1.4rem;
@@ -163,38 +238,46 @@ body {
 .download-card p {
   color: var(--text-muted);
   min-height: 3em;
+  margin-bottom: 1.2rem;
 }
 .download-card .btn-download,
 .download-card .btn-outline {
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
   display: block;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* ---------- How to Install / Quick Links ---------- */
+/* ---------- Lists & spacing fix for install steps ---------- */
 ol, ul {
-  padding-left: 1.4rem;
-  line-height: 1.8;
+  padding-left: 1.6rem;
+  line-height: 1.9;
 }
+/* ensure list items stay nicely indented */
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- General links & blockquote ---------- */
 a {
   color: var(--accent);
   text-decoration: none;
+  transition: color 0.2s;
 }
 a:hover {
   text-decoration: underline;
+  color: var(--accent-hover);
 }
 hr {
   border-color: var(--border);
-  margin: 2rem 0;
+  margin: 2.5rem 0;
 }
 blockquote {
   border-left: 4px solid var(--yellow);
-  background: rgba(210,153,29,0.08);
+  background: rgba(210,153,29,0.06);
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
   color: var(--text-muted);
+  border-radius: 0 8px 8px 0;
 }
 small {
   color: var(--text-muted);
@@ -208,5 +291,9 @@ small {
   .hero-download {
     flex-direction: column;
     align-items: center;
+  }
+  .main-content {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
   }
 }
