@@ -177,4 +177,16 @@ After installing, our settings file will unlock everything automatically. Here�
 
 ---
 
+## 🙏 Credits & Acknowledgements
+
+All pre‑patched APKs are built using the fantastic work of the **official MorpheApp team**.  
+Without their open‑source patches and continuous efforts, this project wouldn’t exist.
+
+- Official GitHub: <a href="https://github.com/MorpheApp/morphe-manager/releases" target="_blank" rel="noopener noreferrer">MorpheApp Morphe Manager</a>
+- Official Website: <a href="https://morphe.software/" target="_blank" rel="noopener noreferrer">morphe.software</a>
+
+A huge thank you to the MorpheApp developers for making a safer, ad‑free YouTube experience possible!
+
+---
+
 > ⚠️ **Disclaimer:** This project is not affiliated with YouTube or Google. The APKs are provided for educational purposes only. Use at your own risk.
