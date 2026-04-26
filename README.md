@@ -41,4 +41,14 @@ All APKs are built from public Morphe patches. VirusTotal scan results are linke
 ## 📅 Updates
 Check the **[Releases](../../releases)** section for version history and changelogs.
 
+---
+
+## 🙏 Credits
+
+All APKs are patched using the original **MorpheApp patches**.  
+Full credit goes to the official MorpheApp team.
+
+- Official GitHub: [https://github.com/MorpheApp/morphe-manager/releases)  
+- Official Website: [https://morphe.software/)
+
 > ⚠️ **Disclaimer:** Not affiliated with YouTube or Google. Provided for educational use only. Use at your own risk.
