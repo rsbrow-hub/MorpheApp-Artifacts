@@ -2,6 +2,9 @@
 layout: default
 ---
 
+<!-- Scroll Progress Bar -->
+<div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:999;width:0%;transition: width 0.1s;"></div>
+
 <div class="hero-download">
   <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest/download/MorpheApp-YouTube.apk" class="btn-primary">
     ⬇️ Download Latest APK
@@ -110,6 +113,8 @@ layout: default
 
 ---
 
+<div id="how-to-install"></div>
+
 ## 📲 How to Install (Complete Guide)
 
 ### ✅ Pre‑requisites
@@ -170,12 +175,16 @@ After installing, our settings file contains a set of around essential 70+ refin
 
 ---
 
+<div id="quick-links"></div>
+
 ## 🔗 Quick Links
 - [All Releases](https://github.com/BackstoreIO/MorpheApp-Artifacts/releases)
 - [Report an Issue](https://github.com/BackstoreIO/MorpheApp-Artifacts/issues)
 - [View on GitHub](https://github.com/BackstoreIO/MorpheApp-Artifacts)
 
 ---
+
+<div id="credits"></div>
 
 ## 🙏 Credits & Acknowledgements
 
@@ -190,7 +199,19 @@ A huge thank you to the MorpheApp developers for making a safer, ad‑free YouTu
 ---
 
 > ⚠️ **Disclaimer:** This project is not affiliated with YouTube or Google. The APKs are provided for educational purposes only. Use at your own risk.
+
+<!-- Back to Top Button -->
+<button id="back-to-top" title="Back to top">⬆️</button>
+
 <script>
+  // Scroll Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / scrollHeight) * 100;
+    document.getElementById('progress-bar').style.width = scrolled + '%';
+  });
+
   // AOS init
   AOS.init({
     duration: 800,
@@ -239,6 +260,32 @@ A huge thank you to the MorpheApp developers for making a safer, ad‑free YouTu
   document.querySelectorAll('.feature-card, .download-card').forEach((card, idx) => {
     card.setAttribute('data-aos', 'fade-up');
     card.setAttribute('data-aos-delay', (idx % 4) * 100);
+  });
+
+  // Smooth scrolling for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Back to Top button
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      backToTopBtn.style.display = 'block';
+    } else {
+      backToTopBtn.style.display = 'none';
+    }
+  });
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 
