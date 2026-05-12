@@ -6,8 +6,8 @@ layout: default
 <div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:999;width:0%;transition: width 0.1s;"></div>
 
 <div class="hero-download">
-  <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest/download/MorpheApp-YouTube.apk" class="btn-primary">
-    ⬇️ Download Latest APK
+  <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest" class="btn-primary">
+    ⬇️ Download Latest Release
   </a>
   <a href="#downloads" class="btn-secondary">📦 All Downloads</a>
 </div>
@@ -84,30 +84,24 @@ layout: default
 ## 📥 Downloads
 {: id="downloads"}
 
-<div class="download-grid">
-  <div class="download-card">
-    <h3>📱 MorpheApp (YouTube)</h3>
-    <p>Latest patched YouTube APK</p>
-    <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest/download/MorpheApp-YouTube.apk" class="btn-download">⬇️ Latest APK</a>
-    <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases" class="btn-outline">📂 All Versions</a>
-  </div>
-  <div class="download-card">
-    <h3>🎵 MorpheApp Music (YT Music)</h3>
-    <p>Ad‑free YouTube Music APK</p>
-    <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest/download/MorpheApp-Music.apk" class="btn-download">⬇️ Latest APK</a>
-    <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases" class="btn-outline">📂 All Versions</a>
-  </div>
-  <div class="download-card">
-    <h3>🔧 MicroG</h3>
-    <p>Required for non‑rooted login</p>
-    <a href="https://github.com/MorpheApp/MicroG-RE/releases/latest/download/MicroG-RE.apk" class="btn-download">⬇️ Latest MicroG</a>
-    <a href="https://github.com/MorpheApp/MicroG-RE/releases" class="btn-outline">📂 All Versions</a>
-  </div>
-  <div class="download-card">
-    <h3>⚙️ Settings File (70+ Tweaks)</h3>
-    <p>Pre‑configured for the best experience. Import and relax.</p>
-    <a href="https://raw.githubusercontent.com/BackstoreIO/MorpheApp-Artifacts/main/My.50%2B.YouTube_Morphe_Settings_2026-04-22.txt" class="btn-download">⬇️ Download Settings</a>
-    <small>⬆️ Direct settings file link. Always the latest.</small>
+<div class="download-single" style="text-align: center; margin: 3rem 1rem;">
+  <div class="download-card" style="max-width: 600px; margin: 0 auto; padding: 2.5rem 2rem;">
+    <h2 style="margin-top: 0;">📦 All in One Release</h2>
+    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-muted);">
+      The latest GitHub Release includes everything you need:
+    </p>
+    <ul style="list-style: none; padding: 0; margin: 1.5rem 0; text-align: left; display: inline-block;">
+      <li>📱 <strong>MorpheApp YouTube</strong> APK</li>
+      <li>🎵 <strong>MorpheApp YT Music</strong> APK</li>
+      <li>🔧 <strong>MicroG RE</strong> (for non‑root login)</li>
+      <li>⚙️ <strong>70+ Settings File</strong> (import ready)</li>
+    </ul>
+    <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest" class="btn-download" style="font-size: 1.2rem; padding: 1rem 2.5rem;">
+      ⬇️ Go to Latest Release
+    </a>
+    <p style="margin-top: 1.2rem; font-size: 0.9rem; color: var(--text-muted);">
+      <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases" style="color: var(--accent);">📂 View all releases</a>
+    </p>
   </div>
 </div>
 
@@ -123,11 +117,10 @@ layout: default
 
 ### 📌 Step‑by‑step
 1. **Install MicroG** (skip if your device is rooted)
-   - Download MicroG APK from the link above.
-   - Install it and grant any requested permissions.
+   - From the 🖕 [Releases page](https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest), download the **MicroG-RE.apk** and install it.
 
 2. **Download MorpheApp APK**
-   - Click the **Latest APK** button above to get the most recent YouTube or Music APK directly.
+   - On the same release page, grab either **MorpheApp-YouTube.apk** or **MorpheApp-Music.apk** (or both).
 
 3. **Install the APK**
    - Open the downloaded file and tap **Install**.
@@ -141,16 +134,18 @@ layout: default
 
 ### ⚙️ How to Import Our Around Essential 70+ Settings
 
-After installing, our settings file contains a set of around essential 70+ refinements. Here’s exactly where to apply it inside the app:
+After installing, import our pre‑tuned settings to unlock everything automatically.  
+**Download the settings file (`My.50+.YouTube_Morphe_Settings_*.txt`) from the same release.**
 
-1. **Download the settings file** from the button above.
-2. Open **MorpheApp** (YouTube).
-3. Tap your **profile picture** (top right) → **Settings**.
+Here’s exactly where to apply it inside the app:
+
+1. Open **MorpheApp** (YouTube).
+2. Tap your **profile picture** (top right) → **Settings**.
    - You will now see the MorpheApp logo and "Settings" at the top of the screen.
-4. Scroll down and tap **Miscellaneous**.
-5. Inside Miscellaneous, scroll down again and tap **Import/Export**.
-6. Tap **Import Settings** and choose the downloaded settings file (the `.txt` file).
-7. Tap **Save** and restart the app when prompted.
+3. Scroll down and tap **Miscellaneous**.
+4. Inside Miscellaneous, scroll down again and tap **Import/Export**.
+5. Tap **Import Settings** and choose the downloaded `.txt` file.
+6. Tap **Save** and restart the app when prompted.
 
 **What’s included (around essential 70+ tweaks):**
 - **SponsorBlock** – all segments auto‑skipped, compact button, voting on
