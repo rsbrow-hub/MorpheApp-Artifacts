@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="hero-download">
-  <a href="https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases/latest/download/MorpheApp-YouTube.apk" class="btn-primary">
+  <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest/download/MorpheApp-YouTube.apk" class="btn-primary">
     ⬇️ Download Latest APK
   </a>
   <a href="#downloads" class="btn-secondary">📦 All Downloads</a>
@@ -86,14 +86,14 @@ layout: default
   <div class="download-card">
     <h3>📱 MorpheApp (YouTube)</h3>
     <p>Latest patched YouTube APK</p>
-    <a href="https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases/latest/download/MorpheApp-YouTube.apk" class="btn-download">⬇️ Latest APK</a>
-    <a href="https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases" class="btn-outline">📂 All Versions</a>
+    <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest/download/MorpheApp-YouTube.apk" class="btn-download">⬇️ Latest APK</a>
+    <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases" class="btn-outline">📂 All Versions</a>
   </div>
   <div class="download-card">
     <h3>🎵 MorpheApp Music (YT Music)</h3>
     <p>Ad‑free YouTube Music APK</p>
-    <a href="https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases/latest/download/MorpheApp-Music.apk" class="btn-download">⬇️ Latest APK</a>
-    <a href="https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases" class="btn-outline">📂 All Versions</a>
+    <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases/latest/download/MorpheApp-Music.apk" class="btn-download">⬇️ Latest APK</a>
+    <a href="https://github.com/BackstoreIO/MorpheApp-Artifacts/releases" class="btn-outline">📂 All Versions</a>
   </div>
   <div class="download-card">
     <h3>🔧 MicroG</h3>
@@ -104,7 +104,7 @@ layout: default
   <div class="download-card">
     <h3>⚙️ Settings File (50+ Tweaks)</h3>
     <p>Pre‑configured for the best experience. Import and relax.</p>
-    <a href="https://raw.githubusercontent.com/rsbrow-hub/MorpheApp-Artifacts/main/My.50%2B.YouTube_Morphe_Settings_2026-04-22.txt" class="btn-download">⬇️ Download Settings</a>
+    <a href="https://raw.githubusercontent.com/BackstoreIO/MorpheApp-Artifacts/main/My.50%2B.YouTube_Morphe_Settings_2026-04-22.txt" class="btn-download">⬇️ Download Settings</a>
     <small>⬆️ Direct settings file link. Always the latest.</small>
   </div>
 </div>
@@ -172,9 +172,9 @@ After installing, our settings file will unlock everything automatically. Here�
 ---
 
 ## 🔗 Quick Links
-- [All Releases](https://github.com/rsbrow-hub/MorpheApp-Artifacts/releases)
-- [Report an Issue](https://github.com/rsbrow-hub/MorpheApp-Artifacts/issues)
-- [View on GitHub](https://github.com/rsbrow-hub/MorpheApp-Artifacts)
+- [All Releases](https://github.com/BackstoreIO/MorpheApp-Artifacts/releases)
+- [Report an Issue](https://github.com/BackstoreIO/MorpheApp-Artifacts/issues)
+- [View on GitHub](https://github.com/BackstoreIO/MorpheApp-Artifacts)
 
 ---
 
