@@ -201,7 +201,7 @@ A huge thank you to the MorpheApp developers for making a safer, ad‑free YouTu
 <!-- Back to Top Button -->
 <button id="back-to-top" title="Back to top">⬆️</button>
 
-<!-- All Scripts Combined (Old + New Features) -->
+<!-- All Scripts Combined -->
 <script>
   // ========== Scroll Progress Bar ==========
   window.addEventListener('scroll', () => {
@@ -211,9 +211,9 @@ A huge thank you to the MorpheApp developers for making a safer, ad‑free YouTu
     document.getElementById('progress-bar').style.width = scrolled + '%';
   });
 
-  // ========== AOS Init (Smoother Duration) ==========
+  // ========== AOS Init (Smooth) ==========
   AOS.init({
-    duration: 1000,       // Increased for smoother reveal
+    duration: 1000,
     once: true,
     easing: 'ease-out-cubic'
   });
@@ -238,7 +238,7 @@ A huge thank you to the MorpheApp developers for making a safer, ad‑free YouTu
     type();
   })();
 
-  // ========== Dark/Light Toggle with Flash Effect ==========
+  // ========== Dark/Light Toggle (No white flash) ==========
   (function() {
     const header = document.querySelector('.page-header');
     if (!header) return;
@@ -249,16 +249,10 @@ A huge thank you to the MorpheApp developers for making a safer, ad‑free YouTu
     header.appendChild(toggle);
 
     toggle.addEventListener('click', () => {
-      // Flash overlay
-      document.body.classList.add('theme-changing');
       document.body.classList.toggle('light-mode');
       const isLight = document.body.classList.contains('light-mode');
       toggle.innerHTML = isLight ? '☀️' : '🌙';
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      // Remove flash after animation
-      setTimeout(() => {
-        document.body.classList.remove('theme-changing');
-      }, 300);
     });
   })();
 
@@ -283,39 +277,20 @@ A huge thank you to the MorpheApp developers for making a safer, ad‑free YouTu
     });
   }
 
-  // ========== Custom Cursor ==========
+  // ========== Mouse Glow Effect (Fire-like) ==========
   (function() {
-    const cursor = document.createElement('div');
-    cursor.classList.add('custom-cursor');
-    document.body.appendChild(cursor);
-
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    const speed = 0.15;
-
+    const root = document.documentElement;
     document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      root.style.setProperty('--mouse-x', e.clientX + 'px');
+      root.style.setProperty('--mouse-y', e.clientY + 'px');
     });
-
-    function animate() {
-      cursorX += (mouseX - cursorX) * speed;
-      cursorY += (mouseY - cursorY) * speed;
-      cursor.style.transform = `translate(${cursorX - 12}px, ${cursorY - 12}px)`;
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Hover effect for interactive elements
-    const links = document.querySelectorAll('a, button, .theme-toggle, .mobile-nav a, .btn-primary, .btn-secondary, .btn-download, .btn-outline, #back-to-top');
-    links.forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+    document.addEventListener('touchmove', (e) => {
+      root.style.setProperty('--mouse-x', e.touches[0].clientX + 'px');
+      root.style.setProperty('--mouse-y', e.touches[0].clientY + 'px');
     });
   })();
 
   // ========== Optional Click Sound Effect ==========
-  // Remove or comment out if not wanted
   (function() {
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     document.addEventListener('click', (e) => {
@@ -334,13 +309,13 @@ A huge thank you to the MorpheApp developers for making a safer, ad‑free YouTu
     });
   })();
 
-  // ========== Add data-aos attributes ==========
+  // ========== AOS data attributes ==========
   document.querySelectorAll('.feature-card, .download-card').forEach((card, idx) => {
     card.setAttribute('data-aos', 'fade-up');
     card.setAttribute('data-aos-delay', (idx % 4) * 100);
   });
 
-  // ========== Smooth scrolling for anchor links ==========
+  // ========== Smooth scrolling ==========
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
