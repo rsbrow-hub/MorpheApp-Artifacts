@@ -22,7 +22,6 @@
   --header-border: #30363d;
 }
 
-/* Light mode overrides */
 body.light-mode {
   --bg: #f6f8fa;
   --surface: #ffffff;
@@ -42,24 +41,28 @@ body.light-mode {
   --header-border: #d0d7de;
 }
 
-/* ---------- Basic Reset & Smooth Background ---------- */
-* {
-  box-sizing: border-box;
+/* ========== ROOT LEVEL FIX FOR ZOOM & OVERFLOW ========== */
+html {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
+  /* Never allow horizontal scroll or zoom-out triggers */
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
   background-color: var(--bg);
   color: var(--text);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;                /* ← Fixes page shifting left/right */
   transition: background-color 0.5s, color 0.3s;
   background: linear-gradient(135deg, var(--bg) 0%, #0a0e14 100%);
   background-attachment: fixed;
+  position: relative; /* ensures child positioning doesn't escape */
 }
 
-/* Subtle animated gradient overlay for modern look */
 body::before {
   content: "";
   position: fixed;
@@ -79,7 +82,29 @@ body::before {
   100% { opacity: 1; }
 }
 
-/* ---------- Sticky Header with blur ---------- */
+/* ========== STRICT CONTAINMENT: NO ELEMENT CAN BREAK VIEWPORT ========== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, pre, table, code, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.main-content,
+.page-header,
+.hero-download,
+.feature-grid,
+.download-grid,
+.download-single,
+footer {
+  max-width: 100vw;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* ---------- Sticky Header ---------- */
 .page-header {
   position: sticky;
   top: 0;
@@ -103,7 +128,7 @@ body::before {
   pointer-events: none;
 }
 
-/* ---------- Dark/Light Toggle ---------- */
+/* Theme toggle */
 .theme-toggle {
   position: absolute;
   top: 1rem;
@@ -127,7 +152,7 @@ body::before {
   transform: scale(1.1);
 }
 
-/* ---------- Glowing Title with Shimmer Animation ---------- */
+/* Title with shimmer animation */
 .project-name {
   font-size: 2.8rem;
   font-weight: 800;
@@ -152,7 +177,7 @@ body::before {
   margin-top: 0.2rem;
 }
 
-/* Typewriter effect (if still used) */
+/* Typewriter */
 #typewriter {
   display: inline-block;
   border-right: 2px solid var(--accent);
@@ -164,7 +189,7 @@ body::before {
   50% { border-color: transparent; }
 }
 
-/* ---------- Hero Buttons ---------- */
+/* ---------- Buttons ---------- */
 .hero-download {
   display: flex;
   flex-wrap: wrap;
@@ -172,6 +197,7 @@ body::before {
   gap: 1rem;
   margin: 2rem 1rem;
 }
+
 .btn-primary, .btn-secondary, .btn-download, .btn-outline {
   display: inline-block;
   padding: 0.85rem 2rem;
@@ -184,6 +210,7 @@ body::before {
   position: relative;
   z-index: 1;
 }
+
 .btn-primary {
   background: var(--accent);
   color: #fff;
@@ -200,6 +227,7 @@ body::before {
   animation: none;
   box-shadow: 0 0 50px rgba(88,166,255,0.8);
 }
+
 .btn-secondary {
   background: transparent;
   border-color: var(--border);
@@ -209,6 +237,7 @@ body::before {
   background: var(--surface-hover);
   border-color: var(--text-muted);
 }
+
 .btn-download {
   background: linear-gradient(135deg, #238636, #2ea043);
   color: #fff;
@@ -226,6 +255,7 @@ body::before {
   animation: none;
   box-shadow: 0 0 45px rgba(63,185,80,0.8);
 }
+
 .btn-outline {
   background: transparent;
   border-color: var(--green);
@@ -243,7 +273,7 @@ body::before {
   gap: 1.8rem;
   margin: 2.5rem auto;
   padding: 0 1rem;
-  max-width: 100%;          /* Fix: keeps inside viewport */
+  max-width: 100%;
 }
 .feature-card {
   background: var(--surface);
@@ -272,22 +302,8 @@ body::before {
   box-shadow: var(--shadow), 0 0 25px rgba(88,166,255,0.15);
   border-color: var(--accent);
 }
-.feature-icon {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-.feature-card h3 {
-  font-size: 1.35rem;
-  margin: 0 0 0.7rem;
-  color: var(--text);
-}
-.feature-card p {
-  color: var(--text-muted);
-  line-height: 1.6;
-  font-size: 0.97rem;
-}
 
-/* ---------- Downloads Section ---------- */
+/* ---------- Downloads ---------- */
 .download-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -303,52 +319,45 @@ body::before {
   padding: 2rem 1.8rem;
   text-align: center;
   transition: all 0.3s ease;
-  position: relative;
-}
-.download-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 25px rgba(88,166,255,0.15), var(--shadow);
-  transform: translateY(-3px);
 }
 
-/* ---------- General Content Container Fix ---------- */
-.main-content {
-  max-width: 100vw;           /* Prevents overflow */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
-/* ---------- Mobile Floating Navigation ---------- */
+/* ========== MOBILE FLOATING NAV - PERFECT CENTERING ========== */
 .mobile-nav {
   display: none;
   position: fixed;
   bottom: 1.2rem;
+  /* Center exactly */
   left: 50%;
   transform: translateX(-50%);
+  /* Prevent any zoom / scale from moving it */
+  margin: 0;
+  padding: 0.5rem 1.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 50px;
-  padding: 0.5rem 1.5rem;
   box-shadow: var(--shadow);
-  z-index: 99;
+  z-index: 999;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  width: auto;
   white-space: nowrap;
+  width: auto;
 }
+
+/* Links inside */
 .mobile-nav a {
   color: var(--text);
   margin: 0 0.8rem;
   font-size: 1.3rem;
   transition: color 0.2s, transform 0.2s;
   display: inline-block;
+  line-height: 1;
 }
 .mobile-nav a:hover {
   color: var(--accent);
   transform: translateY(-2px);
 }
 
-/* Show mobile nav only on small screens */
+/* Show only on mobile */
 @media (max-width: 768px) {
   .mobile-nav {
     display: flex;
@@ -367,9 +376,21 @@ body::before {
   }
 }
 
-/* ---------- Back to Top Button ---------- */
+/* Extra tiny screens – keep nav centered and small */
+@media (max-width: 400px) {
+  .mobile-nav {
+    padding: 0.4rem 1rem;
+    bottom: 0.8rem;
+  }
+  .mobile-nav a {
+    margin: 0 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ---------- Back to Top ---------- */
 #back-to-top {
-  display: none; /* controlled by JS, but we set base */
+  display: none;
   position: fixed;
   bottom: 100px;
   right: 25px;
@@ -392,12 +413,12 @@ body::before {
 }
 @media (max-width: 768px) {
   #back-to-top {
-    bottom: 80px;  /* ensures it sits above the mobile nav */
+    bottom: 80px;   /* above mobile nav */
     right: 15px;
   }
 }
 
-/* ---------- Responsive Adjustments ---------- */
+/* ---------- Responsive Typography ---------- */
 @media (max-width: 600px) {
   .project-name {
     font-size: 2rem;
@@ -410,11 +431,6 @@ body::before {
     padding-left: 1.2rem;
     padding-right: 1.2rem;
   }
-}
-
-/* ---------- AOS & Animations ---------- */
-[data-aos] {
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 /* ---------- Scrollbar ---------- */
@@ -432,7 +448,7 @@ body::before {
   background: var(--accent);
 }
 
-/* ---------- Links & Blockquote ---------- */
+/* ---------- Misc ---------- */
 a {
   color: var(--accent);
   text-decoration: none;
