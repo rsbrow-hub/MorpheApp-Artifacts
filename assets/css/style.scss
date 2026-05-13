@@ -1,53 +1,52 @@
 ---
 ---
 
-/* ===== Modern Dark Glowing Theme for MorpheApp ===== */
+/* ===== Morphe Artifacts – Ultra Glowing Unique Theme ===== */
 :root {
   --bg: #0d1117;
-  --surface: #161b22;
-  --surface-hover: #1c2129;
-  --border: #30363d;
+  --surface: rgba(22, 27, 34, 0.8);
+  --surface-hover: rgba(28, 33, 41, 0.9);
+  --border: rgba(48, 54, 61, 0.8);
   --text: #c9d1d9;
   --text-muted: #8b949e;
   --accent: #58a6ff;
   --accent-hover: #79c0ff;
-  --accent-glow: rgba(88,166,255,0.4);
+  --accent-glow: rgba(88,166,255,0.5);
+  --purple-glow: rgba(188,140,255,0.5);
   --green: #3fb950;
-  --green-glow: rgba(63,185,80,0.4);
+  --green-glow: rgba(63,185,80,0.5);
   --yellow: #d2991d;
   --red: #f85149;
-  --radius: 14px;
-  --shadow: 0 8px 30px rgba(0,0,0,0.5);
-  --header-bg: rgba(13, 17, 23, 0.85);
-  --header-border: #30363d;
-  --cursor-color: #58a6ff;
+  --radius: 16px;
+  --shadow: 0 10px 40px rgba(0,0,0,0.6);
+  --header-bg: rgba(13, 17, 23, 0.8);
 }
 
 body.light-mode {
   --bg: #f6f8fa;
-  --surface: #ffffff;
-  --surface-hover: #f0f2f5;
+  --surface: rgba(255,255,255,0.8);
+  --surface-hover: rgba(240,242,245,0.9);
   --border: #d0d7de;
   --text: #1f2328;
   --text-muted: #656d76;
   --accent: #0969da;
   --accent-hover: #0550ae;
-  --accent-glow: rgba(9,105,218,0.3);
+  --accent-glow: rgba(9,105,218,0.4);
+  --purple-glow: rgba(120,80,200,0.3);
   --green: #1a7f37;
-  --green-glow: rgba(26,127,55,0.3);
+  --green-glow: rgba(26,127,55,0.4);
   --yellow: #9a6700;
   --red: #cf222e;
-  --shadow: 0 4px 15px rgba(0,0,0,0.08);
-  --header-bg: rgba(246, 248, 250, 0.9);
-  --header-border: #d0d7de;
-  --cursor-color: #0969da;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --header-bg: rgba(246,248,250,0.85);
 }
 
+/* ========== HARD FIX: No white flash at all ========== */
 html {
+  background-color: #0d1117; /* fallback dark */
   overflow-x: hidden;
   width: 100%;
 }
-
 body {
   overflow-x: hidden;
   width: 100%;
@@ -57,27 +56,28 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  transition: background-color 0.5s, color 0.3s;
+  transition: background-color 0.4s, color 0.2s;
   position: relative;
-  cursor: none; /* Hide default cursor for custom */
+  /* default cursor visible */
+  /* The glow will be added via body::before */
 }
 
-/* Dark mode transition overlay flash */
-body::after {
+/* ----- Mouse-following Glow (like firelight) ----- */
+body::before {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--bg);
-  opacity: 0;
   pointer-events: none;
   z-index: 9999;
-  transition: opacity 0.3s;
-}
-body.theme-changing::after {
-  opacity: 0.4;
+  background: radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(88,166,255,0.15),
+    rgba(188,140,255,0.1),
+    transparent 70%);
+  transition: opacity 0.2s;
+  mix-blend-mode: screen;
 }
 
 /* tsParticles container */
@@ -91,51 +91,18 @@ body.theme-changing::after {
   pointer-events: none;
 }
 
-/* ---------- Custom Cursor ---------- */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 24px;
-  border: 2px solid var(--cursor-color);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  transition: width 0.2s, height 0.2s, border-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 10px var(--accent-glow);
-  will-change: transform;
-}
-.cursor-hover {
-  width: 36px;
-  height: 36px;
-  border-color: var(--green);
-  box-shadow: 0 0 20px var(--green-glow);
-  transition: width 0.2s, height 0.2s, border-color 0.2s, box-shadow 0.2s;
-}
-
-/* ---------- Sticky Header ---------- */
+/* ---------- Sticky Header with blur ---------- */
 .page-header {
   position: sticky;
   top: 0;
   z-index: 100;
   background: var(--header-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--header-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
   padding: 1.5rem 1rem;
   text-align: center;
   transition: background 0.3s;
-}
-.page-header::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 30% 30%, rgba(88,166,255,0.06), transparent 70%);
-  pointer-events: none;
 }
 
 /* Theme toggle */
@@ -151,30 +118,31 @@ body.theme-changing::after {
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 101;
+  backdrop-filter: blur(10px);
 }
 .theme-toggle:hover {
   background: var(--surface-hover);
   transform: scale(1.1);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
-/* ---------- Glitchy Title ---------- */
+/* ---------- Title: Purple-Blue Glowing Pulse (no shake) ---------- */
 .project-name {
-  font-size: 2.8rem;
-  font-weight: 800;
-  background: linear-gradient(120deg, #58a6ff, #bc8cff);
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(120deg, #bc8cff, #58a6ff, #bc8cff);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin: 0;
-  animation: shimmer 3s linear infinite, glitch 5s infinite;
-  filter: drop-shadow(0 0 8px rgba(88,166,255,0.3));
-  position: relative;
+  animation: shimmer 4s linear infinite, titleGlow 2s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 10px rgba(188,140,255,0.6));
 }
 
 @keyframes shimmer {
@@ -182,12 +150,9 @@ body.theme-changing::after {
   100% { background-position: 200% center; }
 }
 
-@keyframes glitch {
-  0%, 90%, 100% { transform: translate(0); }
-  92% { transform: translate(-2px, 1px) skew(-2deg); }
-  94% { transform: translate(2px, -1px) skew(2deg); }
-  96% { transform: translate(-1px, -1px) skew(-1deg); }
-  98% { transform: translate(1px, 1px) skew(1deg); }
+@keyframes titleGlow {
+  0% { filter: drop-shadow(0 0 8px rgba(88,166,255,0.6)); }
+  100% { filter: drop-shadow(0 0 20px rgba(188,140,255,0.9)); }
 }
 
 .project-tagline {
@@ -221,73 +186,62 @@ body.theme-changing::after {
 
 .btn-primary, .btn-secondary, .btn-download, .btn-outline {
   display: inline-block;
-  padding: 0.85rem 2rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-  border-radius: 50px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 60px;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
   position: relative;
+  overflow: hidden;
   z-index: 1;
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: linear-gradient(135deg, #58a6ff, #bc8cff);
   color: #fff;
-  box-shadow: 0 0 25px var(--accent-glow);
-  animation: glowPulse 2.5s infinite alternate;
-}
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 20px var(--accent-glow); }
-  100% { box-shadow: 0 0 40px rgba(88,166,255,0.7); }
+  box-shadow: 0 0 30px var(--accent-glow);
 }
 .btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-3px);
-  animation: none;
-  box-shadow: 0 0 50px rgba(88,166,255,0.8);
+  transform: translateY(-4px);
+  box-shadow: 0 0 50px var(--purple-glow), 0 0 80px var(--accent-glow);
 }
 
 .btn-secondary {
   background: transparent;
-  border-color: var(--border);
+  border: 2px solid var(--border);
   color: var(--text);
+  backdrop-filter: blur(5px);
 }
 .btn-secondary:hover {
   background: var(--surface-hover);
-  border-color: var(--text-muted);
+  border-color: var(--accent);
+  box-shadow: 0 0 25px var(--accent-glow);
 }
 
 .btn-download {
   background: linear-gradient(135deg, #238636, #2ea043);
   color: #fff;
-  border: none;
-  box-shadow: 0 0 20px var(--green-glow);
-  animation: greenGlow 2.5s infinite alternate;
-}
-@keyframes greenGlow {
-  0% { box-shadow: 0 0 15px var(--green-glow); }
-  100% { box-shadow: 0 0 35px rgba(63,185,80,0.7); }
+  box-shadow: 0 0 25px var(--green-glow);
 }
 .btn-download:hover {
-  background: linear-gradient(135deg, #2ea043, #3fb950);
-  transform: translateY(-3px);
-  animation: none;
-  box-shadow: 0 0 45px rgba(63,185,80,0.8);
+  transform: translateY(-4px);
+  box-shadow: 0 0 50px var(--green-glow), 0 0 80px rgba(63,185,80,0.6);
 }
 
 .btn-outline {
   background: transparent;
-  border-color: var(--green);
+  border: 2px solid var(--green);
   color: var(--green);
-  margin-top: 0.5rem;
+  backdrop-filter: blur(5px);
 }
 .btn-outline:hover {
-  background: rgba(63, 185, 80, 0.1);
+  background: rgba(63, 185, 80, 0.15);
+  box-shadow: 0 0 25px var(--green-glow);
 }
 
-/* ---------- Feature Grid ---------- */
+/* ---------- Feature Grid (Glassmorphism) ---------- */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -303,27 +257,44 @@ body.theme-changing::after {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 2rem 1.8rem;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
 }
-.feature-card::after {
+.feature-card::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(88,166,255,0.05), transparent);
-  transition: left 0.5s ease;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(88,166,255,0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
 }
-.feature-card:hover::after {
-  left: 100%;
+.feature-card:hover::before {
+  opacity: 1;
 }
 .feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow), 0 0 25px rgba(88,166,255,0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 30px var(--accent-glow), var(--shadow);
   border-color: var(--accent);
+}
+.feature-icon {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+.feature-card h3 {
+  font-size: 1.4rem;
+  margin: 0 0 0.7rem;
+  color: var(--text);
+}
+.feature-card p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
 /* ---------- Downloads ---------- */
@@ -342,13 +313,15 @@ body.theme-changing::after {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 2rem 1.8rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   text-align: center;
   transition: all 0.4s ease;
 }
 .download-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 25px rgba(88,166,255,0.15), var(--shadow);
-  transform: translateY(-3px);
+  box-shadow: 0 0 30px var(--accent-glow), var(--shadow);
+  transform: translateY(-5px);
 }
 
 /* ---------- Mobile Floating Nav ---------- */
@@ -364,40 +337,21 @@ body.theme-changing::after {
   padding: 0.5rem 1.5rem;
   box-shadow: var(--shadow);
   z-index: 999;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   white-space: nowrap;
-  width: auto;
 }
 .mobile-nav a {
   color: var(--text);
   margin: 0 0.8rem;
   font-size: 1.3rem;
-  transition: color 0.2s, transform 0.2s;
+  transition: all 0.2s;
   display: inline-block;
   line-height: 1;
 }
 .mobile-nav a:hover {
   color: var(--accent);
-  transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-  .mobile-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .page-header {
-    padding: 1.2rem 0.5rem;
-  }
-  .theme-toggle {
-    top: 0.8rem;
-    right: 0.8rem;
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
-  }
+  transform: translateY(-3px);
 }
 
 /* ---------- Back to Top ---------- */
@@ -415,27 +369,58 @@ body.theme-changing::after {
   border-radius: 50%;
   font-size: 1.2rem;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: background 0.3s, transform 0.2s, color 0.2s;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
 }
 #back-to-top:hover {
   background: var(--accent);
   color: #fff;
   transform: translateY(-3px);
+  box-shadow: 0 0 25px var(--accent-glow);
 }
+
+/* ---------- Responsive fine‑tuning ---------- */
 @media (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .page-header {
+    padding: 1rem 0.5rem;
+  }
+  .theme-toggle {
+    top: 0.8rem;
+    right: 0.8rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
   #back-to-top {
     bottom: 80px;
     right: 15px;
   }
 }
 
-/* ---------- Scrollbar ---------- */
+@media (max-width: 600px) {
+  .project-name {
+    font-size: 2.2rem;
+  }
+}
+
+/* ----- Ensure content sits above particles ----- */
+.main-content, .download-single, #quick-links, #credits, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Scrollbar (acrylic) ----- */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border);
@@ -445,15 +430,15 @@ body.theme-changing::after {
   background: var(--accent);
 }
 
-/* ---------- Misc ---------- */
+/* ----- Misc elements ----- */
 a {
   color: var(--accent);
   text-decoration: none;
   transition: color 0.2s;
 }
 a:hover {
-  text-decoration: underline;
   color: var(--accent-hover);
+  text-shadow: 0 0 8px var(--accent-glow);
 }
 hr {
   border-color: var(--border);
@@ -461,29 +446,10 @@ hr {
 }
 blockquote {
   border-left: 4px solid var(--yellow);
-  background: rgba(210,153,29,0.06);
+  background: rgba(210,153,29,0.08);
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
   color: var(--text-muted);
-  border-radius: 0 8px 8px 0;
-}
-small {
-  color: var(--text-muted);
-}
-
-/* Make sure content sits above particles */
-.main-content, .download-single, #quick-links, #credits, footer {
-  position: relative;
-  z-index: 1;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .project-name {
-    font-size: 2rem;
-  }
-  .hero-download {
-    flex-direction: column;
-    align-items: center;
-  }
+  border-radius: 0 12px 12px 0;
+  backdrop-filter: blur(5px);
 }
